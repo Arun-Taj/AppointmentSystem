@@ -1,0 +1,33 @@
+@model IEnumerable<YourNamespace.Models.Appointment>
+
+<h2>Appointments</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model)
+        {
+            <tr>
+                <td>@appointment.Name</td>
+                <td>@appointment.Status</td>
+                <td>@appointment.Date.ToShortDateString()</td>
+                <td>@appointment.StartTime</td>
+                <td>@appointment.EndTime</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@appointment.Id">Edit</a>
+                    <a asp-action="Activate" asp-route-id="@appointment.Id">Activate</a>
+                    <a asp-action="Deactivate" asp-route-id="@appointment.Id">Deactivate</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="Create">Create New Appointment</a>
