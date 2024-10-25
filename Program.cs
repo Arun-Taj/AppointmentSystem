@@ -1,18 +1,20 @@
 using Microsoft.EntityFrameworkCore;
-using AppointmentSystem.Services;  // Ensure this is the correct namespace for your services
-using AppointmentSystem.Data;      // Ensure this is the correct namespace for your DbContext
+using AppointmentSystem.Services;
+using AppointmentSystem.Data;
+using AppointmentSystem.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Register your services here
+// Register services here
 builder.Services.AddScoped<PostService>();
-// builder.Services.AddScoped<VisitorService>();
-// builder.Services.AddScoped<OfficerService>();
-// builder.Services.AddScoped<AppointmentService>();
-// builder.Services.AddScoped<ActivityService>();
+builder.Services.AddScoped<VisitorService>();
+builder.Services.AddScoped<OfficerService>();
+builder.Services.AddScoped<WorkDaysService>();  // Ensure consistent naming
+builder.Services.AddScoped<AppointmentService>();
+builder.Services.AddScoped<ActivitiesService>();
 
 // Register DbContext for your database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

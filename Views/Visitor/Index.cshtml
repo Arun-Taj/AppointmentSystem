@@ -1,0 +1,43 @@
+@model IEnumerable<AppointmentSystem.Models.Visitor>
+
+<h2>Visitor List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Mobile No</th>
+            <th>Email Address</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var visitor in Model)
+    {
+        <tr>
+            <td>@visitor.Name</td>
+            <td>@visitor.MobileNo</td>
+            <td>@visitor.EmailAddress</td>
+            <td>@(visitor.IsActive ? "Active" : "Inactive")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@visitor.Id">Edit</a> |
+                @if (visitor.IsActive)
+                {
+                    <form asp-action="Deactivate" asp-route-id="@visitor.Id" method="post" style="display:inline;">
+                        <button type="submit">Deactivate</button>
+                    </form>
+                }
+                else
+                {
+                    <form asp-action="Activate" asp-route-id="@visitor.Id" method="post" style="display:inline;">
+                        <button type="submit">Activate</button>
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a asp-action="Create">Create New Visitor</a>

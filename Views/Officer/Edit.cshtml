@@ -1,0 +1,35 @@
+@model AppointmentSystem.Models.Officer
+
+<h2>Edit Officer</h2>
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="PostId"></label>
+        <input asp-for="PostId" class="form-control" />
+        <span asp-validation-for="PostId" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="WorkStartTime"></label>
+        <input asp-for="WorkStartTime" class="form-control" />
+        <span asp-validation-for="WorkStartTime" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="WorkEndTime"></label>
+        <input asp-for="WorkEndTime" class="form-control" />
+        <span asp-validation-for="WorkEndTime" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

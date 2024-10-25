@@ -1,0 +1,40 @@
+@model AppointmentSystem.Models.Officer
+
+<h2>Create Officer</h2>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="PostId"></label>
+        <input asp-for="PostId" class="form-control" />
+        <span asp-validation-for="PostId" class="text-danger"></span>
+    </div>
+    @* <div class="form-group">
+    <label asp-for="PostId"></label>
+    <select asp-for="PostId" class="form-control" asp-items="ViewBag.Posts"></select>
+    <span asp-validation-for="PostId" class="text-danger"></span>
+</div> *@
+
+    
+    <div class="form-group">
+        <label asp-for="WorkStartTime"></label>
+        <input asp-for="WorkStartTime" class="form-control" />
+        <span asp-validation-for="WorkStartTime" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="WorkEndTime"></label>
+        <input asp-for="WorkEndTime" class="form-control" />
+        <span asp-validation-for="WorkEndTime" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+<a href="@Url.Action("Index", "Officer")">Back to List</a>

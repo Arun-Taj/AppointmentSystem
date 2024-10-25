@@ -1,0 +1,45 @@
+@model IEnumerable<AppointmentSystem.Models.Officer>
+
+<h2>Officers</h2>
+<a asp-action="Create" class="btn btn-primary">Create New Officer</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>PostId</th>
+            <th>Status</th>
+            <th>Work Start Time</th>
+            <th>Work End Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var officer in Model)
+        {
+            <tr>
+                <td>@officer.Name</td>
+                <td>@officer.PostId</td>
+                <td>@(officer.IsActive ? "Active" : "Inactive")</td>
+                <td>@officer.WorkStartTime</td>
+                <td>@officer.WorkEndTime</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@officer.Id" class="btn btn-secondary">Edit</a>
+                    @if (officer.IsActive)
+                    {
+                        <form asp-action="Deactivate" asp-route-id="@officer.Id" method="post">
+                            <button type="submit" class="btn btn-warning">Deactivate</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-action="Activate" asp-route-id="@officer.Id" method="post">
+                            <button type="submit" class="btn btn-success">Activate</button>
+                        </form>
+                    }
+                    <a asp-action="ViewAppointments" asp-route-id="@officer.Id" class="btn btn-info">View Appointments</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

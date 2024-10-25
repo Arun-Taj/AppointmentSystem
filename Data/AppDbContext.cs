@@ -13,8 +13,8 @@ namespace AppointmentSystem.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<Visitor> Visitors { get; set; }
         public DbSet<Officer> Officers { get; set; }
-        public DbSet<WorkDay> WorkDays { get; set; }
+        public DbSet<WorkDay> WorkDays { get; set; }      // Singular `WorkDay` for the type
         public DbSet<Appointment> Appointments { get; set; }
-        public DbSet<Activities> Activities { get; set; }
+        public DbSet<Activity> Activities { get; set; }   // Singular `Activity` for the type
     }
 }

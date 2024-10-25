@@ -1,0 +1,16 @@
+@* @model AppointmentSystem.Models.WorkDays
+
+<h2>Delete Work Day</h2>
+
+<div>
+    <h4>Are you sure you want to delete this work day?</h4>
+    <div>
+        <p><strong>Day:</strong> @Model.DayOfWeek</p>
+    </div>
+
+    <form asp-action="DeleteConfirmed">
+        <input type="hidden" asp-for="WorkDaysId" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Details" asp-controller="Officer" asp-route-id="@Model.OfficerId" class="btn btn-secondary">Cancel</a>
+    </form>
+</div> *@

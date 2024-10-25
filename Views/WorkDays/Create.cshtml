@@ -1,0 +1,22 @@
+@model AppointmentSystem.Models.WorkDays
+
+<h2>Create Work Day</h2>
+<form asp-action="Create" method="post">
+    <div>
+        <label>Officer:</label>
+        <select asp-for="OfficerId" asp-items="@(new SelectList(ViewBag.Officers, "Id", "Name"))"></select>
+    </div>
+    <div>
+        <label>Day of Week:</label>
+        <select asp-for="DayOfWeek">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+        </select>
+    </div>
+    <button type="submit">Add Work Day</button>
+</form>

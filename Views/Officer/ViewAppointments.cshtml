@@ -1,0 +1,21 @@
+@model IEnumerable<AppointmentSystem.Models.Appointment>
+
+<h2>Appointments</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model)
+        {
+            <tr>
+                <td>@appointment.Date</td>
+                 <td>@appointment.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,21 @@
+@model IEnumerable<AppointmentSystem.Models.WorkDays>
+
+<h2>Work Days</h2>
+<a href="@Url.Action("Create", "WorkDays")">Add New Work Day</a>
+<table>
+    <tr>
+        <th>Officer Name</th>
+        <th>Day of Week</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var workDay in Model)
+    {
+        <tr>
+            <td>@workDay.Officer.Name</td>
+            <td>@workDay.DayOfWeek</td>
+            <td>
+                <a href="@Url.Action("Edit", "WorkDays", new { id = workDay.Id })">Edit</a>
+            </td>
+        </tr>
+    }
+</table>

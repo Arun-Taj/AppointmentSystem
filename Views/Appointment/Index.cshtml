@@ -1,0 +1,28 @@
+@model IEnumerable<AppointmentSystem.Models.Appointment>
+
+<h2>Appointments</h2>
+<a href="@Url.Action("Create", "Appointment")">Create New Appointment</a>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var appointment in Model)
+    {
+        <tr>
+            <td>@appointment.Name</td>
+            <td>@appointment.Date.ToShortDateString()</td>
+            <td>@appointment.StartTime</td>
+            <td>@appointment.EndTime</td>
+            <td>@appointment.Status</td>
+            <td>
+                <a href="@Url.Action("Edit", "Appointment", new { id = appointment.Id })">Edit</a> |
+                <a href="@Url.Action("Cancel", "Appointment", new { id = appointment.Id })">Cancel</a>
+            </td>
+        </tr>
+    }
+</table>
